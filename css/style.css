@@ -1125,7 +1125,7 @@ body > header {
     }
 }
 /*---Responsivo: tablet---*/
-@media screen and (min-width: 601px) and (max-width: 1335px) {
+@media screen and (min-width: 601px) and (max-width: 1024px) {
     /*---Popup---*/
     .content_popup {
         width: 93%;
