@@ -1,0 +1,1703 @@
+/*---Definindo as fontes---*/
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('../font/Bree_Serif/BreeSerif-Regular.ttf');
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/Lato/Lato-Bold.ttf');
+}
+@font-face {
+    font-family: 'DM Sans';
+    src: url('../font/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
+}
+@font-face {
+    font-family: 'Nunito';
+    src: url('../font/Nunito/Nunito-VariableFont_wght.ttf');
+}
+/*---Resetando o documento---*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*---Definindo o tamanho---*/
+html, body {
+    height: -webkit-fill-available;
+}
+/*---Container para ajustes---*/
+.settings {
+    margin: 0 auto;
+    max-width: 1250px;
+    padding: 0 2%;
+}
+/*---Popup---*/
+.background_popup, .background_card {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    height: -webkit-fill-available;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+} 
+.content_popup {
+    background-color: #fafafa;
+    width: 30%;
+    display: none;
+    position: relative;
+    border-radius: 15px;
+    padding: 50px;
+}
+.content_popup h2 {
+    text-align: center;
+    font-family: 'Lato';
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.contacts_popup {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20.9%;
+    align-items: center;
+    justify-content: center;
+}
+.contacts_popup span {
+    display: inline-block;
+    width: 100%;
+}
+.contacts_popup span:last-of-type {
+    margin-top: 15px;
+}
+.contacts_popup img {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+.contacts_popup a {
+    display: inline-block;
+    margin-left: 5px;
+    font-family: 'DM Sans';
+    margin-top: 0.5px;
+    font-weight: bold;
+    transition: 0.7s;
+    color: #010101;
+    font-size: 15px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.contacts_popup a:hover {
+    transform: scale(1.05);
+}
+.contacts_popup p {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 15px;
+    vertical-align: middle;
+    font-family: 'DM Sans';
+    color: #010101;
+}
+/*---Segundo Popup: container---*/
+.popup2_cont {
+    display: none;
+    justify-content: center;
+    position: relative;
+}
+/*---Segundo Popup: botão de fechar---*/
+.popup2_cont .close {
+    top: -2.5%;   
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 999;
+    transform: translateX(-50%);
+    background-color: #797BE4;
+    border-color: #797BE4;
+}
+.popup2_cont .close:hover {
+    transform: translateX(-50%) scale(1.1);
+    background-color: #fafafa;
+    color: #797BE4;
+}
+.popup2_cont .close strong {
+    font-size: 20px;
+}
+/*---Segundo Popup: imagem---*/
+.popup2_cont img {
+    width: 100%;
+}
+/*---Icone de fechar---*/
+.close {
+    position: absolute;
+    top: -6%;
+    cursor: pointer;
+    right: -2.5%;
+    width: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 31px;
+    transition: 0.7s;
+    color: #fafafa;
+    border: 2px solid #f1671a;
+    background-color: #f1671a;
+    border-radius: 20px;
+}
+.close:hover {
+    transform: scale(1.1);
+    background-color: #fafafa;
+    color: #f1671a;
+}
+.close strong {
+    font-size: 17px;
+    font-family: 'Nunito';
+}
+/*---Cards---*/
+.centroPop_card, .cras_card, .creas_card, .vozesDasRuas, .todosPorUm_cont {
+    background-image: url('../imgs/backgroundCard_centroPop.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    display: none;
+    grid-template-areas: 
+        'esquerda direita'
+        'rodape rodape';
+    grid-template-columns: 73% 27%;
+    width: 60%;
+    position: relative;
+}
+.cras_card {
+    background-image: url('../imgs/background_cras.png');
+}
+.creas_card {
+    background-image: url('../imgs/background_creas.png');
+}
+/*---Botao de fechar---*/
+.centroPop_card .close, .cras_card .close, .creas_card .close {
+    top: -1.7%;
+    width: 36px;
+    height: 36px;
+    right: -1.2%;
+}
+.centroPop_card .close strong, .cras_card .close strong, .creas_card .close strong {
+    font-size: 18.5px;
+}
+.content_card, .content_vdr, .tpu_content {
+    grid-area: esquerda;
+}
+.content_card header {
+    display: flex;
+    padding: 25px 0 0 25px;
+}
+.content_card header img {
+    width: 17%;
+}
+.content_card header h1 {
+    white-space: pre-line;
+    font-family: 'Lato';
+    margin-top: -23px;
+    margin-left: 10px;
+    font-size: 33px;
+}
+.cras_card header h1 {
+    margin-top: 10px;
+}
+.creas_card header h1 {
+    margin-top: -10px;
+}
+.content_card p {
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 60px;
+    text-align: center;
+    width: 85%;
+    font-family: 'Lato';
+}
+.img_card, .img_vdr, .tpu_img {
+    grid-area: direita;
+    position: relative;
+}
+.img_card div, .img_vdr div, .tpu_img div {
+    position: absolute;
+    background-color: #f2f1eb;
+    padding: 10px 10px 50px;
+    border-radius: 3px;
+    border: 1px solid #a29e9a;
+    width: 65%;
+}
+.img_card div:nth-of-type(1), .img_vdr div:nth-of-type(1) {
+    top: 13%;
+    right: 36%;
+}
+.img_card div:nth-of-type(2), .img_vdr div:nth-of-type(2) {
+    top: 51%;
+    right: 7%;
+}
+.img_card div:nth-of-type(3), .img_vdr div:nth-of-type(3) {
+    top: 92%;
+    right: 35%;
+}
+.img_card img, .img_vdr img, .tpu_img img {
+    width: 100%;
+    border: 0.5px solid #dfe2de;
+    border-radius: 3px;
+    height: 160px;
+}
+/*---Rodape do card centro pop---*/
+.centroPop_card footer, .cras_card footer, .creas_card footer, .vozesDasRuas footer, .todosPorUm_cont footer {
+    padding: 0 15px 15px;
+    grid-area: rodape;
+}
+.centroPop_card footer div, .cras_card footer div, .creas_card footer div {
+    width: 50%;
+    position: relative;
+    top: 30%;
+}
+.centroPop_card footer div:nth-of-type(2), .cras_card footer div:nth-of-type(2), .creas_card footer div:nth-of-type(2) {
+    margin-top: 4px;
+}
+.centroPop_card footer h3, .cras_card footer h3, .creas_card footer h3 {
+    font-family: 'Lato';
+    font-size: 25px;
+    position: relative;
+    top: 20%;
+}
+.centroPop_card footer p, .cras_card footer p, .creas_card footer p {
+    font-family: 'Bree Serif';
+    font-size: 20px;
+}
+.centroPop_card footer img, .cras_card footer img, .creas_card footer img {
+    float: right;
+    display: block;
+    width: 5%;
+}
+/*---Ajustes---*/
+.clear {
+    clear: both;
+}
+/*---Cabeçalho---*/
+body > header {
+    padding: 70px;
+    background-image: url('../imgs/7.png');
+    background-size: cover;
+    height: -webkit-fill-available;
+}
+/*---Topo do Cabeçalho---*/
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+.top span {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.top img {
+    width: 6.5%;
+}
+.top h1 {
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    padding-top: 0.9%;
+    font-size: 38px;
+    margin-left: 15px;
+}
+.top a {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #25be4a;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #25be4a;
+    height: 55px;
+    border-radius: 3px;
+    width: 10%;
+    transition: 0.7s;
+    padding-top: 15px;
+    text-align: center;
+    color: #fafafa;
+}
+.top a:hover {
+    transform: scale(1.1);
+    background-color: #fafafa;
+    color: #25be4a;
+}
+/*---Fundo do Cabeçalho---*/
+.bottom {
+    padding-left: 71px;
+}
+.bottom h1 {
+    font-size: 84px;
+    font-weight: normal;
+    font-family: 'Lato';
+    white-space: pre-line;
+}
+.bottom h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    font-family: 'DM Sans';
+}
+/*---Seção sobre nós---*/
+.aboutUs {
+    display: flex;
+    justify-content: space-between;
+    padding: 120px 0;
+}
+/*---Container da imagem---*/
+.img {
+    width: 50%;
+}
+.aboutUs img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+/*---Informações---*/
+.info {
+    width: 50%;
+}
+.aboutUs .info {
+    padding-left: 230px;
+    padding-top: 70px;
+}
+.info h1 {
+    font-family: 'Lato';
+    font-size: 55px;
+}
+.aboutUs .info p {
+    margin-top: 0;
+    font-family: 'DM Sans';
+    font-weight: bold;
+    font-size: 21px;
+}
+.info input, .philosophy .info a, .box_link input {
+    color: #fafafa;
+    background-color: #25be4a;
+    margin-top: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid #25be4a;
+    border-radius: 3px;
+    transition: 0.7s;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'DM Sans';
+    font-weight: bold;
+    padding: 16px 25px;
+}
+.info input:hover, .philosophy .info a:hover, .box_link input:hover {
+    transform: scale(1.05);
+    background-color: #fafafa;
+    color: #25be4a;
+}
+/*---Serviços---*/
+.services {
+    background-image: url('../imgs/9.png');
+    background-size: cover;
+    padding: 150px 140px;
+}
+.services h1 {
+    font-family: 'Lato';
+    font-size: 60px;
+    text-align: center;
+}
+.services .content {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+/*---Single---*/
+.services .single {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    text-align: center;
+    width: 28%;
+    padding: 20px 0;
+    background-color: #fafafa;
+}
+/*---Container com o link---*/
+.services .box_link {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.box_link input {
+    padding: 13px 25px;
+}
+.single img {
+    width: 60%;
+}
+.single h3 {
+    white-space: pre-line;
+    font-family: 'Lato';
+    font-size: 26px;
+}
+.single p {
+    white-space: pre-line;
+    font-size: 20px;
+    margin-top: -20px;
+    color: #76766B;
+    font-family: 'DM Sans';
+}
+/*---Seção Filosofia---*/
+.philosophy {
+    display: flex;
+    padding: 150px 120px 130px;
+}
+/*---Container de informações---*/
+.philosophy h1 {
+    white-space: pre-line;
+    font-size: 56px;
+}
+.philosophy .info a {
+    margin-top: 130px;
+    padding: 16px 53px;
+}
+/*---Container da imagem---*/
+.philosophy img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+/*---Vozes das Ruas---*/
+.vozesDasRuas, .todosPorUm_cont {
+    background-image: url('../imgs/vozesDasRuas_background.png');
+    height: max-content;
+    width: 100%;
+    border-radius: 0;
+    display: block;
+}
+/*---Vozes das Ruas: container para ajustes---*/
+.vozesDasRuas .settings, .todosPorUm_cont .settings {
+    max-width: 1700px;
+    padding: 1% 0;
+    display: grid;
+    grid-template-areas: 
+        'esquerda direita'
+        'rodape rodape'
+    ;
+    grid-template-columns: 70% 30%;
+}
+/*---Vozes das Ruas: cabeçalho---*/
+.vozesDasRuas header, .todosPorUm_cont header {
+    display: flex;
+    align-items: center;
+}
+.vozesDasRuas header img, .todosPorUm_cont header img {
+    width: 10%;
+}
+.vozesDasRuas header h1, .todosPorUm_cont header h1 {
+    font-family: 'Lato';
+    margin-left: 25px;
+    font-size: 35px;
+}
+/*---Vozes das Ruas: conteudo---*/
+.content_vdr p, .tpu_content p {
+    font-family: 'Lato';
+    font-size: 32px;
+    text-align: center;
+    margin: 150px 0;
+    width: 62%;
+}
+/*---Vozes das Ruas: container das imagens---*/
+.img_vdr div, .tpu_img div {
+    width: 60%;
+}
+.img_vdr div:nth-of-type(1), .tpu_img div:nth-of-type(1) {
+    top: 2%;
+}
+.img_vdr div:nth-of-type(2), .tpu_img div:nth-of-type(2) {
+    top: 34%;
+} 
+.img_vdr div:nth-of-type(3), .tpu_img div:nth-of-type(3) {
+    top: 71%;
+}
+.img_vdr img, .tpu_img img {
+    height: 284px;
+}
+/*---Vozes das Ruas: rodapé---*/
+.vozesDasRuas footer, .todosPorUm_cont footer {
+    padding: 40px 0 0;
+    justify-content: space-between;
+    display: flex;
+}
+.vozesDasRuas .one, .vozesDasRuas .two, .todosPorUm_cont .one, .todosPorUm_cont .two {
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.vozesDasRuas .one button {
+    height: 55px;
+    width: 25%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.7s;
+    color: #010101;
+    background-color: #baebbf;
+    border: 0;
+}
+.vozesDasRuas .one button:hover, .vozesDasRuas .one button:active {
+    transform: scale(1.05);
+    background-color: #fafafa;
+    color: #42E245;
+}
+.vozesDasRuas .one img {
+    margin: 0 30px;
+}
+.vozesDasRuas .one p, .todosPorUm_cont .one p {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Lato';
+}
+.vozesDasRuas footer img, .todosPorUm_cont footer img {
+    width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 60px;
+}
+.vozesDasRuas .two span, .vozesDasRuas .two a, .todosPorUm_cont .two span, .todosPorUm_cont .two a {
+    display: inline-block;
+}
+.vozesDasRuas .two span:nth-of-type(1) {
+    margin-right: 10px;
+}
+.vozesDasRuas .two a, .todosPorUm_cont .two a {
+    text-decoration: none;
+    color: #010101;
+    margin-left: 5px;
+    font-size: 16px;
+    transition: 0.5s;
+    font-family: 'Lato';
+}
+.vozesDasRuas .two a:hover, .vozesDasRuas .two a:active, .todosPorUm_cont .one a:hover, .todosPorUm_cont .one a:active {
+    transform: scale(1.03);
+    text-decoration: underline;
+}
+/*---Todos Por Um---*/
+.todosPorUm_cont {
+    background-image: url('../imgs/todosPorUm_background.png');
+}
+/*---Todos Por Um: cabeçalho---*/
+.tpu_content header div {
+    margin-left: 25px;
+}
+.todosPorUm_cont header h1 {
+    margin-left: 0;
+}
+.tpu_content header h3 {
+    font-size: 20px;
+    margin-top: 5px;
+    font-family: 'Lato';
+}
+/*---Todos Por Um: paragrafo principal---*/
+.tpu_content p {
+    font-size: 30px;
+    width: 72%;
+    margin-bottom: 170px;
+}
+/*---Todos Por Um: container das imagens---*/
+.tpu_img div:nth-of-type(3), .tpu_img div:nth-of-type(1) {
+    left: 21%;
+}
+/*---Todos Por Um: rodape---*/
+.todosPorUm_cont footer {
+    padding: 0;
+}
+.todosPorUm_cont .one {
+    justify-content: space-evenly;
+}
+.todosPorUm_cont .one span a {
+    font-size: 16px;
+    margin-left: 5px;
+    transition: 0.7s;
+    vertical-align: middle;
+    display: inline-block;
+    color: #010101;
+    font-family: 'Lato';
+    text-decoration: none;
+} 
+.todosPorUm_cont .one p img {
+    margin: 10px 0;
+}
+.todosPorUm_cont .one p a {
+    text-decoration: none;
+    color: #010101;
+    display: inline-block;
+    transition: 0.7s;
+}
+.todosPorUm_cont .two p {
+    margin-left: 20px;
+    text-align: center;
+    font-family: 'Lato';
+    font-size: 18px;
+}
+.todosPorUm_cont footer > img {
+    width: 70px;
+    height: 70px;
+}
+/*---Feedback---*/
+.feedback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 150px;
+    background-image: url('../imgs/11.png');
+    background-size: cover;
+    height: max-content;
+}
+/*---Conteudo---*/
+.feedback .content {
+    width: 50%;
+    padding: 40px 0;
+}
+.feedback h1 {
+    white-space: pre-line;
+    font-size: 70px;
+    margin-top: -100px;
+    font-family: 'Lato';
+}
+.feedback p {
+    font-family: 'DM Sans';
+    font-size: 30px;
+}
+/*---Contato---*/
+.contact {
+    padding: 80px;
+}
+/*---Ttulos da seção---*/
+.contact h1, .contact h2, .contact h4 {
+    font-family: 'Lato';
+}
+.contact h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+    margin-left: 22px;
+}
+/*---Conteudo da seção contato---*/
+.left_content {
+    float: left;
+    width: 45%;
+}
+.right_content {
+    float: right;
+    width: 45%;
+}
+/*---Container individual da seção---*/
+.contact_single:nth-of-type(2) {
+    margin: 20px 0;
+}
+.contact h2 {
+    font-size: 30px;
+    margin-bottom: 13px;
+}
+/*---Container inline---*/
+.contact_single span {
+    display: block;
+}
+.contact_single span:nth-of-type(2) {
+    margin-top: 5px;
+}
+.contact h4 {
+    color: #797BE4;
+    font-size: 17px;
+}
+.contact p {
+    font-size: 19px;
+    color: #76766B;
+    white-space: pre-line;
+    font-family: 'DM Sans';
+}
+.left_content .contact_single:not(:nth-of-type(2)) span:first-of-type p, .right_content span:first-of-type p {
+    margin-top: -25px;
+}
+/*---Responsivo: mobile---*/
+@media screen and (max-width:600px) {
+    /*---Documento---*/
+    html, body {
+        position: relative;
+    }
+    /*---Popup---*/
+    .content_popup {
+        width: 90%;
+        padding: 29px;
+    }
+    .content_popup h2 {
+        font-size: 24px;
+        text-align: left;
+    }
+    .contacts_popup {
+        padding-left: 0;
+    }
+    .contacts_popup span:last-of-type {
+        margin-top: 10px;   
+    }
+    .contacts_popup img {
+        width: 23px;
+        height: 23px;
+    }
+    .contacts_popup p {
+        font-size: 14px;
+    }
+    /*---Icone de fechar---*/
+    .background_popup .close {
+        top: -9%;
+        right: -4%;
+    }
+    .popup2_cont .close {
+        top: -4%;
+    }
+    /*---Cards---*/
+    .background_card {
+        position: absolute;
+    }
+    .centroPop_card, .cras_card, .creas_card {
+        width: 95%;
+        padding: 30px 0;
+        flex-direction: column;
+    }
+    /*---Botao de fechar---*/
+    .centroPop_card .close, .cras_card .close, .creas_card .close {
+        top: -1%;
+        right: 0;
+        left: 50%;
+        transform: translate(-50%, 1%);
+    }
+    .centroPop_card .close strong, .cras_card .close strong, .creas_card .close strong {
+        font-size: 21px;
+    }
+    /*---Conteudo dos cards---*/
+    .content_card {
+        width: 100%;
+        padding: 0 8px;
+    }
+    .content_card header {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .content_card header img {
+        width: 50%;
+        margin-bottom: 10px;
+    }
+    .content_card header h1 {
+        white-space: normal;
+        margin: 0;
+        font-size: 24px;
+    }
+    .cras_card header h1 {
+        margin-top: 10px;
+    }
+    .creas_card header h1 {
+        margin-top: -10px;
+    }
+    .content_card p {
+        font-size: 19px;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .content_card p br {
+        display: none;
+    }
+    /*---Container das imagens---*/
+    .img_card {
+        width: 100%;
+        padding: 20px 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .img_card div {
+        position: static;
+        padding: 10px 10px 50px;
+        width: 60%;
+        margin-top: 10px;
+    }
+    .img_card img {
+        width: 100%;
+        height: 130px;
+    }
+    /*---Rodape dos cards---*/
+    .centroPop_card footer, .cras_card footer, .creas_card footer {
+        padding: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .centroPop_card footer div, .cras_card footer div, .creas_card footer div {
+        width: 100%;
+        position: static;
+    }
+    .centroPop_card footer div:nth-of-type(1), .cras_card footer div:nth-of-type(1), .creas_card footer div:nth-of-type(1) {
+        margin: 10px 0;
+    }
+    .centroPop_card footer h3, .cras_card footer h3, .creas_card footer h3 {
+        font-family: 'Lato';
+        font-size: 22px;
+        position: relative;
+        top: 20%;
+    }
+    .centroPop_card footer p, .cras_card footer p, .creas_card footer p {
+        font-family: 'Bree Serif';
+        font-size: 17px;
+    }
+    .centroPop_card footer img, .cras_card footer img, .creas_card footer img {
+        float: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        margin: 10px 0;
+    }
+    /*---Cabeçalho---*/
+    body > header {
+        padding: 15px;
+    }
+    /*---Topo do cabeçalho---*/
+    .top {
+        display: block;
+    }
+    .top span {
+        flex-wrap: nowrap;
+        width: 100%;
+        justify-content: center;
+    }
+    .top img {
+        width: 50px;
+        height: 50px;
+    }
+    .top h1 {
+        padding-top: 9px;
+        font-size: 22px;
+    }
+    .top a {
+        font-size: 16px;
+        height: 50px;
+        width: 42%;
+        margin-top: 50px;
+        padding-top: 12px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .top a:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+    /*---Fundo do Cabeçalho---*/
+    .bottom {
+        padding-left: 0;
+        text-align: center;
+    }
+    .bottom h1 {
+        white-space: normal;
+        font-size: 50px;
+        margin-top: 30px;
+    }
+    .bottom h2 {
+        font-size: 18px;
+        margin-top: 30px;
+        white-space: normal;
+    }
+    /*---Seção sobre nós---*/
+    .aboutUs {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 80px 0;
+    }
+    /*---Container da imagem---*/
+    .aboutUs .img {
+        width: 100%;
+    }
+    .aboutUs img {
+        border-radius: 0;
+    }
+    /*---Informações---*/
+    .aboutUs .info {
+        width: 100%;
+    }
+    .aboutUs .info {
+        padding: 20px;
+    }
+    .aboutUs .info h1 {
+        font-size: 50px;
+    }
+    .aboutUs .info p {
+        margin-top: 5px;
+        white-space: normal;
+        font-size: 18px;
+    }
+    .info input {
+        margin-top: 22px;
+        font-size: 16px;
+        padding: 12px 18px;
+    }
+    /*---Serviços---*/
+    .services {
+        padding: 20px;
+    }
+    .services h1 {
+        font-size: 50px;
+    }
+    .services .content {
+        margin-top: 60px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .services .single {
+        width: 100%;
+    }
+    .services .single:nth-of-type(2) {
+        margin: 30px 0;
+    }
+    .services .single h3 {
+        font-size: 24px;
+    }
+    .services .single:nth-of-type(3) h3 {
+        margin-top: -15px;
+    }
+    .services .single p {
+        font-size: 17px;
+        margin-top: -15px;
+    }
+    /*---Seção Filosofia---*/
+    .philosophy {
+        padding: 20px 20px 50px;
+        flex-wrap: wrap;
+    }
+    .philosophy .info, .philosophy .img {
+        width: 100%;
+    }
+    .philosophy .info {
+        padding-top: 60px;
+        margin-bottom: 70px;
+    }
+    .philosophy .info h1 {
+        font-size: 39px;    
+        white-space: normal;
+    }
+    .philosophy .info a {
+        margin-top: 40px;
+        font-size: 16px;
+        padding: 12px 32px;
+    }
+    /*---Vozes das Ruas---*/
+    .vozesDasRuas, .todosPorUm_cont {
+        height: max-content;
+    }
+    /*---Vozes das Ruas: container para ajustes---*/
+    .vozesDasRuas .settings, .todosPorUm_cont .settings {
+        max-width: 100%;
+        padding: 4%;
+        grid-template-areas: 
+            'esquerda'
+            'direita'
+            'rodape'
+        ;
+        grid-template-columns: 100%;
+    }
+    /*---Vozes das Ruas: cabeçalho---*/
+    .vozesDasRuas header, .todosPorUm_cont header {
+        justify-content: center;
+    }
+    .vozesDasRuas header img, .todosPorUm_cont header img {
+        width: 15%;
+    }
+    .vozesDasRuas header h1, .todosPorUm_cont header h1 {
+        margin-left: 12px;
+        font-size: 32px;
+    }
+    .todosPorUm_cont header h1 {
+        margin-left: 0;
+    }
+    .tpu_content header div {
+        margin-left: 12px;
+    }
+    .tpu_content header h3 {
+        font-size: 18px;
+    }
+    .tpu_content header h3 br {
+        display: none;
+    }
+    /*---Vozes das Ruas: conteudo---*/
+    .content_vdr p, .tpu_content p {
+        font-size: 22px;
+        margin: 20px 0 0;
+        width: 100%;
+    }
+    .content_vdr p > br, .tpu_content p > br {
+        display: none;
+    }
+    /*---Container de Imagens---*/
+    .img_vdr, .tpu_img {
+        padding-top: 20px;
+    }
+    .img_vdr div, .tpu_img div {
+        position: static;
+        width: 100%;
+    }
+    .img_vdr div:nth-of-type(2), .tpu_img div:nth-of-type(2) {
+        margin: 20px 0;
+    }
+    /*---Vozes das Ruas: rodapé---*/
+    .vozesDasRuas footer, .todosPorUm_cont footer {
+        justify-content: normal;
+        flex-direction: column;
+    }
+    .todosPorUm_cont footer {
+        padding-top: 40px;
+    }
+    .vozesDasRuas .one, .vozesDasRuas .two, .todosPorUm_cont .one, .todosPorUm_cont .two {
+        width: 100%;
+        flex-direction: column;
+    }
+    .vozesDasRuas .one button {
+        width: 70%;
+    }
+    .vozesDasRuas .one img {
+        margin: 0;
+    }
+    .vozesDasRuas .one button, .vozesDasRuas .one img, .vozesDasRuas .one p, .todosPorUm_cont .one p, .todosPorUm_cont .one span, .todosPorUm_cont .two img, .todosPorUm_cont .two p {
+        margin-bottom: 15px;
+    }
+    .vozesDasRuas .two span {
+        margin: 0 0 15px;
+    }
+    .vozesDasRuas footer > img, .todosPorUm_cont footer > img {
+        align-self: center;
+    }
+    /*---Feedback---*/
+    .feedback {
+        justify-content: normal;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .feedback h1 {
+        font-size: 50px;
+        margin-top: 0;
+    }
+    .feedback .content {
+        width: 100%;
+        padding-top: 28px;
+    }
+    .feedback p {
+        font-size: 25px;
+    }
+    .feedback p > br {
+        display: none;
+    }
+    .feedback h2 {
+        font-size: 20px;
+    }
+    /*---Contato---*/
+    .contact {
+        padding: 40px 20px 20px;
+    }
+    .contact h1 {
+        margin-left: 61px;
+    }
+    .contact h2 {
+        font-size: 28px;
+    }
+    .left_content, .right_content {
+        width: 46%;
+    }
+    .contact p {
+        white-space: normal;
+    }
+    .left_content .contact_single:not(:nth-of-type(2)) span:first-of-type p, .right_content span:first-of-type p {
+        margin-top: 0;
+    }
+}
+/*---Responsivo: tablet---*/
+@media screen and (min-width: 601px) and (max-width: 1336px) {
+    /*---Popup---*/
+    .content_popup {
+        width: 93%;
+        padding: 30px;
+    }
+    .content_popup h2 {
+        font-size: 26px;
+        text-align: left;
+        margin-bottom: 13px;
+    }
+    .contacts_popup {
+        padding-left: 0;
+    }
+    .contacts_popup span:last-of-type {
+        margin-top: 10px;   
+    }
+    .contacts_popup img {
+        width: 25px;
+        height: 25px;
+    }
+    .contacts_popup p {
+        font-size: 15px;
+    }
+    /*---Icone de fechar---*/
+    .close {
+        top: -7%;
+        right: -2%;
+    }
+    .popup2_cont .close {
+        top: -2.5%;
+    }
+    /*---Cards---*/
+    .background_card {
+        position: absolute;
+    }
+    .centroPop_card, .cras_card, .creas_card {
+        width: 95%;
+        padding: 25px 0;
+        flex-direction: column;
+    }
+    /*---Botao de fechar---*/
+    .centroPop_card .close, .cras_card .close, .creas_card .close {
+        top: -1.5%;
+        right: 0;
+        left: 50%;
+        transform: translate(-50%, 1%);
+    }
+    .centroPop_card .close strong, .cras_card .close strong, .creas_card .close strong {
+        font-size: 21px;
+    }
+    /*---Conteudo dos cards---*/
+    .content_card {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .content_card header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+    .content_card header img {
+        width: 40%;
+        margin-bottom: 10px;
+    }
+    .content_card header h1 {
+        white-space: normal;
+        margin: 0;
+        font-size: 26px;
+    }
+    .cras_card header h1 {
+        margin-top: 10px;
+    }
+    .creas_card header h1 {
+        margin-top: -10px;
+    }
+    .content_card p {
+        font-size: 20px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .content_card p br {
+        display: none;
+    }
+    /*---Container das imagens---*/
+    .img_card {
+        width: 100%;
+        padding: 20px 0 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .img_card div {
+        position: static;
+        width: 31%;
+        margin-top: 10px;
+    }
+    .img_card img {
+        width: 100%;
+        height: 130px;
+    }
+    /*---Rodape dos cards---*/
+    .centroPop_card footer, .cras_card footer, .creas_card footer {
+        padding: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .centroPop_card footer div, .cras_card footer div, .creas_card footer div {
+        width: 100%;
+        position: static;
+    }
+    .centroPop_card footer div:nth-of-type(1), .cras_card footer div:nth-of-type(1), .creas_card footer div:nth-of-type(1) {
+        margin: 10px 0;
+    }
+    .centroPop_card footer h3, .cras_card footer h3, .creas_card footer h3 {
+        font-size: 24px;
+    }
+    .centroPop_card footer p, .cras_card footer p, .creas_card footer p {
+        font-size: 19px;
+    }
+    .centroPop_card footer img, .cras_card footer img, .creas_card footer img {
+        float: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 15%;
+        margin: 10px 0;
+    }
+    /*---Cabeçalho---*/
+    body > header {
+        padding: 25px;
+    }
+    /*---Topo do cabeçalho---*/
+    .top span {
+        width: 100%;
+    }
+    .top img {
+        width: 60px;
+        height: 60px;
+    }
+    .top h1 {
+        padding-top: 13px;
+        font-size: 21px;
+        margin-left: 10px;
+    }
+    .top a {
+        font-size: 16px;
+        height: 49px;
+        padding-top: 12px;
+        width: 180px;
+    }
+    /*---Fundo do Cabeçalho---*/
+    .bottom {
+        padding-left: 0;
+        text-align: center;
+    }
+    .bottom h1 {
+        font-size: 55px;
+        margin-top: 30px;
+    }
+    .bottom h2 {
+        font-size: 20px;
+        margin-top: 30px;
+        white-space: normal;
+    }
+    /*---Seção sobre nós---*/
+    .aboutUs {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 60px 0;
+    }
+    /*---Container da imagem---*/
+    .aboutUs .img {
+        width: 100%;
+    }
+    .aboutUs img {
+        border-radius: 0;
+    }
+    /*---Informações---*/
+    .aboutUs .info {
+        width: 100%;
+    }
+    .aboutUs .info {
+        padding: 20px;
+    }
+    .aboutUs .info h1 {
+        font-size: 55px;
+    }
+    .aboutUs .info p {
+        margin-top: 5px;
+        white-space: normal;
+        font-size: 18px;
+    }
+    .info input {
+        margin-top: 22px;
+        font-size: 16px;
+        padding: 12px 18px;
+    }
+    /*---Serviços---*/
+    .services {
+        padding: 60px 12px;
+    }
+    .services h1 {
+        font-size: 55px;
+    }
+    .services .content {
+        margin-top: 50px;
+    }
+    .services .single {
+        width: 32%;
+        padding: 8px;
+    }
+    .services .single img {
+        width: 70%;
+    }
+    .services .single h3 {
+        font-size: 20px;
+    }
+    .services .single p {
+        font-size: 16px;
+        margin-top: 5px;
+        white-space: normal;
+    }
+    /*---Container com o link---*/
+    .box_link input {
+        padding: 11px 23px;
+        font-size: 16px;
+    }
+    /*---Seção Filosofia---*/
+    .philosophy {
+        padding: 20px 20px 80px;
+        flex-wrap: wrap;
+    }
+    .philosophy .info, .philosophy .img {
+        width: 100%;
+    }
+    .philosophy .info {
+        padding-top: 60px;
+        margin-bottom: 70px;
+    }
+    .philosophy .info h1 {
+        font-size: 45px;    
+        white-space: normal;
+    }
+    .philosophy .info a {
+        margin-top: 40px;
+        font-size: 16px;
+        padding: 12px 45px;
+    }
+    /*---Vozes das Ruas---*/
+    .vozesDasRuas, .todosPorUm_cont {
+        height: max-content;
+    }
+    /*---Vozes das Ruas: container para ajustes---*/
+    .vozesDasRuas .settings, .todosPorUm_cont .settings {
+        max-width: 100%;
+        padding: 4%;
+        grid-template-areas: 
+            'esquerda'
+            'direita'
+            'rodape'
+        ;
+        grid-template-columns: 100%;
+    }
+    /*---Vozes das Ruas: cabeçalho---*/
+    .vozesDasRuas header, .todosPorUm_cont header {
+        justify-content: center;
+    }
+    .vozesDasRuas header img, .todosPorUm_cont header img {
+        width: 11%;
+    }
+    .vozesDasRuas header h1, .todosPorUm_cont header h1 {
+        margin-left: 12px;
+        font-size: 32px;
+    }
+    .todosPorUm_cont header h1 {
+        margin-left: 0;
+    }
+    .tpu_content header div {
+        margin-left: 12px;
+    }
+    .tpu_content header h3 {
+        font-size: 18px;
+    }
+    .tpu_content header h3 br {
+        display: none;
+    }
+    /*---Vozes das Ruas: conteudo---*/
+    .content_vdr p, .tpu_content p {
+        font-size: 22px;
+        margin: 20px 0 0;
+        width: 100%;
+    }
+    .content_vdr p > br, .tpu_content p > br {
+        display: none;
+    }
+    /*---Container de Imagens---*/
+    .img_vdr, .tpu_img {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .img_vdr div, .tpu_img div {
+        position: static;
+        width: 100%;
+    }
+    .img_vdr div:nth-of-type(2), .tpu_img div:nth-of-type(2) {
+        margin: 0 15px;
+    }
+    .img_vdr img, .tpu_img img {
+        height: max-content;
+    }
+    /*---Vozes das Ruas: rodapé---*/
+    .vozesDasRuas footer, .todosPorUm_cont footer {
+        display: block;
+    }
+    .todosPorUm_cont footer {
+        padding-top: 40px;
+    }
+    .vozesDasRuas .one, .vozesDasRuas .two, .todosPorUm_cont .one, .todosPorUm_cont .two {
+        width: 50%;
+        flex-direction: column;
+    }
+    .vozesDasRuas .one, .todosPorUm_cont .one {
+        float: left;
+    }
+    .vozesDasRuas .two, .todosPorUm_cont .two {
+        float: right;
+    }
+    .vozesDasRuas .one button {
+        width: 70%;
+    }
+    .vozesDasRuas .one img {
+        margin: 0;
+    }
+    .vozesDasRuas .one button, .vozesDasRuas .one img, .vozesDasRuas .one p, .todosPorUm_cont .one p, .todosPorUm_cont .two img {
+        margin-bottom: 15px;
+    }
+    .todosPorUm_cont .one span {
+        margin-bottom: 15px;
+    }
+    .todosPorUm_cont .two p {
+        margin: 0;
+    }
+    .vozesDasRuas .two span:nth-of-type(1) {
+        margin: 0 0 15px;
+    }
+    .vozesDasRuas footer > img, .todosPorUm_cont footer > img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /*---Feedback---*/
+    .feedback {
+        justify-content: normal;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .feedback h1 {
+        font-size: 55px;
+        margin-top: -20px;
+    }
+    .feedback .content {
+        width: 100%;
+        padding-top: 80px;
+    }
+    .feedback p > br {
+        display: none;
+    }
+    /*---Contato---*/
+    .contact {
+        padding: 50px 20px 30px;
+    }
+    .contact h1 {
+        font-size: 47px;
+        text-align: center;
+    }
+    .contact h2 {
+        font-size: 27px;
+    }
+    .contact h4 {
+        font-size: 16px;
+    }
+    .left_content, .right_content {
+        width: 48%;
+    }
+    .contact p {
+        font-size: 18px;
+        white-space: normal;
+    }
+    .left_content .contact_single:not(:nth-of-type(2)) span:first-of-type p, .right_content span:first-of-type p {
+        margin-top: 0;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .img_card div {
+        width: 26%;
+        height: 218px;
+    }
+    .img_card img {
+        height: 152px;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1336px) {
+    /*---Icone de fechar---*/
+    .close {
+        right: -1.2%;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1336px) {
+    /*---Botao de fechar---*/
+    .centroPop_card .close, .cras_card .close, .creas_card .close {
+        top: -2.5%;
+        left: 98.5%;
+        transform: translate(0);
+        right: -1.1%;
+    }
+    /*---Cards---*/
+    .background_card {
+        position: fixed;
+    }
+    .centroPop_card, .cras_card, .creas_card {
+        padding: 15px 0;
+        flex-direction: row;
+    }
+    .content_card header {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;   
+        padding: 25px 0 0 25px;
+    }
+    .content_card header img {
+        width: 20%;
+        margin-bottom: 0;
+    }
+    .content_card header h1 {
+        white-space: normal;
+        margin: 25px 0 0 15px;
+        font-size: 26px;
+    }
+    /*---Container das imagens---*/
+    .img_card {
+        width: 100%;
+        padding: 20px 0 10px;
+        display: block;
+    }
+    .img_card div {
+        position: absolute;
+        width: 61%;
+        margin-top: 0;
+    }
+    /*---Rodape dos cards---*/
+    .centroPop_card footer, .cras_card footer, .creas_card footer {
+        padding: 0 15px 15px;
+        text-align: left;
+    }
+    .centroPop_card footer div, .cras_card footer div, .creas_card footer div {
+        width: 50%;
+        position: relative;
+    }
+    .centroPop_card footer div:nth-of-type(1), .cras_card footer div:nth-of-type(1), .creas_card footer div:nth-of-type(1) {
+        margin: 0;
+    }
+    .centroPop_card footer h3, .cras_card footer h3, .creas_card footer h3 {
+        font-size: 25px;
+    }
+    .centroPop_card footer p, .cras_card footer p, .creas_card footer p {
+        font-size: 20px;
+    }
+    .centroPop_card footer img, .cras_card footer img, .creas_card footer img {
+        float: right;
+        position: static;
+        transform: translateX(0);
+        width: 6%;
+        margin: 0;
+    }
+}
+/*---Responsivo: desktop---*/
+@media screen and (width: 1440px) {
+    .content_card header {
+        padding: 25px 0 0 15px;
+    }
+    .content_card header img {
+        width: 25%;
+    }
+    .content_card header h1 {
+        font-size: 26px;
+        white-space: normal;
+        margin-top: 30px;
+    }
+    .cras_card header h1, .creas_card header h1 {
+        margin-top: 44px;
+    }
+    .content_card p {
+        font-size: 20px;
+        width: 100%;
+    }
+    .img_card div {
+        width: 70%;
+    }
+    .img_card img {
+        height: 140px;
+    }
+    .centroPop_card footer h3, .cras_card footer h3, .creas_card footer h3 {
+        font-size: 22px;
+    }
+    .centroPop_card footer p, .cras_card footer p, .creas_card footer p {
+        font-size: 18px;
+    }
+    .centroPop_card footer img, .cras_card footer img, .creas_card footer img  {
+        width: 7%;
+    } 
+    .aboutUs .info {
+        padding-top: 45px;
+        padding-left: 160px;
+    }
+    .top a {
+        width: 15%;
+    }
+    .top h1 {
+        font-size: 35px;
+    }
+    .bottom h1 {
+        font-size: 65px;
+    }
+    .bottom h2 {
+        font-size: 25px;
+    }
+    .info h1 {
+        font-size: 45px;
+    }
+    .aboutUs .info p {
+        font-size: 19px;
+        margin-top: -15px;
+    }
+    .info input, .box_link input {
+        padding: 13px 25px;
+    }
+    .philosophy .info a {
+        padding: 14px 40px;
+    }
+    /*---Vozes das Ruas: container para ajustes---*/
+    .vozesDasRuas .settings, .todosPorUm_cont .settings {
+        padding: 1.5%;  
+    }
+    /*---Vozes das Ruas: conteudo---*/
+    .content_vdr p, .tpu_content p {
+        width: 87%;
+        font-size: 28px;
+    }
+    /*---Vozes das Ruas: container das imagens---*/
+    .img_vdr div:nth-of-type(3) {
+        top: 62%;
+    }
+    .tpu_img div:nth-of-type(3) {
+        top: 59%;
+    }
+    /*---Feedback---*/
+    .feedback {
+        justify-content: space-around;
+        padding-left: 0;
+    }
+    /*---Conteudo---*/
+    .feedback .content {
+        padding: 40px 0;
+        width: 45%;
+    }
+    .feedback h1 {
+        font-size: 53px;
+    }
+    .feedback p {
+        font-size: 28px;
+    }
+}
