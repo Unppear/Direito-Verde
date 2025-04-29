@@ -133,7 +133,7 @@ html, body {
 .close {
     position: absolute;
     top: -6%;
-    cursor: pointer;
+    z-index: 10;
     right: -2.5%;
     width: 31px;
     display: flex;
