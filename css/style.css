@@ -143,14 +143,14 @@ html, body {
     height: 31px;
     transition: 0.7s;
     color: #fafafa;
-    border: 2px solid #f1671a;
-    background-color: #f1671a;
+    border: 2px solid #25be4a;
+    background-color: #25be4a;
     border-radius: 20px;
 }
 .close:hover {
     transform: scale(1.1);
     background-color: #fafafa;
-    color: #f1671a;
+    color: #25be4a;
 }
 .close strong {
     font-size: 17px;
@@ -158,7 +158,7 @@ html, body {
 }
 /*---Cards---*/
 .centroPop_card, .cras_card, .creas_card, .vozesDasRuas, .todosPorUm_cont {
-    background-image: url('../imgs/backgroundCard_centroPop.png');
+    background-image: url('../imgs/sustentareFundo.png');
     background-size: cover;
     background-position: center;
     border-radius: 5px;
@@ -171,10 +171,10 @@ html, body {
     position: relative;
 }
 .cras_card {
-    background-image: url('../imgs/background_cras.png');
+    background-image: url('../imgs/uefsFundo.png');
 }
 .creas_card {
-    background-image: url('../imgs/background_creas.png');
+    background-image: url('../imgs/escolaagricolaFundo.png');
 }
 /*---Botao de fechar---*/
 .centroPop_card .close, .cras_card .close, .creas_card .close {
@@ -195,6 +195,7 @@ html, body {
 }
 .content_card header img {
     width: 17%;
+    border-radius: 5px;
 }
 .content_card header h1 {
     white-space: pre-line;
@@ -439,6 +440,7 @@ body > header {
 }
 .single img {
     width: 60%;
+    border-radius: 5px;
 }
 .single h3 {
     white-space: pre-line;
@@ -467,10 +469,19 @@ body > header {
     padding: 16px 53px;
 }
 /*---Container da imagem---*/
+.philosophy .img {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
 .philosophy img {
     width: 100%;
     height: 100%;
     border-radius: 5px;
+}
+.philosophy img:nth-of-type(2) {
+    margin-top: 15px;
 }
 /*---Vozes das Ruas---*/
 .vozesDasRuas, .todosPorUm_cont {
@@ -520,9 +531,9 @@ body > header {
     top: 2%;
 }
 .img_vdr div:nth-of-type(2), .tpu_img div:nth-of-type(2) {
-    top: 34%;
+    top: 53%;
 } 
-.img_vdr div:nth-of-type(3), .tpu_img div:nth-of-type(3) {
+.img_vdr div:nth-of-type(3) {
     top: 71%;
 }
 .img_vdr img, .tpu_img img {
@@ -590,7 +601,7 @@ body > header {
 }
 /*---Todos Por Um---*/
 .todosPorUm_cont {
-    background-image: url('../imgs/todosPorUm_background.png');
+    background-image: url('../imgs/sustentareFundo.png');
 }
 /*---Todos Por Um: cabeçalho---*/
 .tpu_content header div {
